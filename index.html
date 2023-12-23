@@ -5,52 +5,122 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Moin Moin</title>
   <style>
+    :root {
+      --text-50: #ece5ff;
+      --text-100: #daccff;
+      --text-200: #b499ff;
+      --text-300: #8f66ff;
+      --text-400: #6933ff;
+      --text-500: #4400ff;
+      --text-600: #3600cc;
+      --text-700: #290099;
+      --text-800: #1b0066;
+      --text-900: #0e0033;
+      --text-950: #07001a;
+
+      --background-50: #f2f2f2;
+      --background-100: #e6e6e6;
+      --background-200: #cccccc;
+      --background-300: #b3b3b3;
+      --background-400: #999999;
+      --background-500: #808080;
+      --background-600: #666666;
+      --background-700: #4d4d4d;
+      --background-800: #333333;
+      --background-900: #1a1a1a;
+      --background-950: #0d0d0d;
+
+      --primary-50: #ece5ff;
+      --primary-100: #daccff;
+      --primary-200: #b499ff;
+      --primary-300: #8f66ff;
+      --primary-400: #6933ff;
+      --primary-500: #4400ff;
+      --primary-600: #3600cc;
+      --primary-700: #290099;
+      --primary-800: #1b0066;
+      --primary-900: #0e0033;
+      --primary-950: #07001a;
+
+      --secondary-50: #ece5ff;
+      --secondary-100: #daccff;
+      --secondary-200: #b499ff;
+      --secondary-300: #8f66ff;
+      --secondary-400: #6933ff;
+      --secondary-500: #4400ff;
+      --secondary-600: #3600cc;
+      --secondary-700: #290099;
+      --secondary-800: #1b0066;
+      --secondary-900: #0e0033;
+      --secondary-950: #07001a;
+
+      --accent-50: #ece5ff;
+      --accent-100: #daccff;
+      --accent-200: #b499ff;
+      --accent-300: #8f66ff;
+      --accent-400: #6933ff;
+      --accent-500: #4400ff;
+      --accent-600: #3600cc;
+      --accent-700: #290099;
+      --accent-800: #1b0066;
+      --accent-900: #0e0033;
+      --accent-950: #07001a;
+    }
+
     body {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       margin: 0;
-      background-color: #f5f5f5;
+      background-color: var(--background-900);
+      box-shadow: 0 0 40px var(--primary-400);
     }
 
     #container {
       text-align: center;
+      text-shadow: 0 0 40px var(--primary-400);
       padding: 20px;
-      background-color: #fff;
+      background-color: var(--background-900);
       border-radius: 25px;
-      box-shadow: 0 4px 8px rgba(150, 119, 221, 0.4); /* Lila Schatten */
+      box-shadow: 0 0 40px var(--primary-400);
     }
 
     input {
       padding: 10px;
       margin: 10px;
-      border: 1px solid #ccc;
+      background-color: var(--background-950);
+      border: 1px solid var(--background-700);
       border-radius: 4px;
+      box-shadow: 0 0 40px var(--primary-400);
+      color: var(--text-50);
     }
 
     button {
       padding: 10px 20px;
-      background-color: #975EFC;
-      color: #fff;
+      background-color: var(--primary-600);
+      color: var(--text-50);
       border: none;
       border-radius: 4px;
       cursor: pointer;
+      box-shadow: 0 0 80px var(--primary-700);
     }
 
     #popup-container {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      padding: 20px;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(150, 119, 221, 0.4);
-      text-align: center;
-      animation: fadeIn 0.5s ease-in-out;
-    }
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: var(--background-900);
+    border-radius: 25px;
+    box-shadow: 0 0 40px var(--primary-400);
+    text-align: center;
+    text-shadow: 0 0 40px var(--primary-400);
+    color: var(--text-50);
+    animation: fadeIn 0.5s ease-in-out, rotateAndScale 1s ease-in-out;
+  }
 
     #popup-image {
       width: 100px;
@@ -59,10 +129,14 @@
       animation: rotate 2s linear infinite;
     }
 
-    @keyframes rotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    @keyframes rotateAndScale {
+        0% {
+        transform: translate(-50%, -50%) rotate(0deg) scale(1);
     }
+        100% {
+        transform: translate(-50%, -50%) rotate(360deg) scale(1);
+    }
+  }
 
     @keyframes fadeIn {
       0% { opacity: 0; }
@@ -71,40 +145,42 @@
   </style>
 </head>
 <body>
-  <div id="container">
-    <h1>Geheimes Passwort</h1>
-    <input type="password" id="passwordInput" placeholder="Passwort eingeben">
-    <button onclick="checkPassword()">Einloggen</button>
-  </div>
+    <div id="container">
+        <h1 style="color: var(--primary-400)">Geheimes Passwort</h1>
+        <input type="password" id="passwordInput" placeholder="Passwort eingeben">
+        <button onclick="checkPassword()">Einloggen</button>
+    </div>
 
   <div id="popup-container">
     <img id="popup-image" src="" alt="Leeres Bild">
-    <p id="popup-text">Hier ist dein benutzerdefiniertes Popup-Text.</p>
+    <p id="popup-text" style="color: var(--text-500);">Hier ist dein benutzerdefiniertes Popup-Text.</p>
     <button onclick="closePopup()">Schließe Popup</button>
   </div>
 
   <script>
     function checkPassword() {
-      var password = document.getElementById('passwordInput').value;
-      if (password === "passwort123") {
+      var password = document.getElementById("passwordInput").value;
+      if (password === "") { /* Passwort einstellen*/
+        var container = document.getElementById("container");
+        container.style.display = "none";
         openPopup();
       }
     }
 
     function openPopup() {
-      var popupContainer = document.getElementById('popup-container');
-      var popupImage = document.getElementById('popup-image');
-      var popupText = document.getElementById('popup-text');
+      var popupContainer = document.getElementById("popup-container");
+      var popupImage = document.getElementById("popup-image");
+      var popupText = document.getElementById("popup-text");
+      popupImage.src = "data:image/png;base64,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"; 
+      popupText.innerText = "Hallo das ist ein text der nur zum test ist also hallo hallo moin moin 12312031023123eumel";
 
-      // Hier könntest du das Bild und den Text entsprechend setzen
-      // Beispiel: popupImage.src = 'bild-url'; popupText.innerText = 'Benutzerdefinierter Text';
-
-      popupContainer.style.display = 'block';
+      popupContainer.style.display = "block";
     }
 
     function closePopup() {
-      var popupContainer = document.getElementById('popup-container');
-      popupContainer.style.display = 'none';
+      var popupContainer = document.getElementById("popup-container");
+      popupContainer.style.display = "none";
+      container.style.display = "block";
     }
   </script>
 </body>
