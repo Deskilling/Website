@@ -5,7 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Moin Moin</title>
   <style>
-    /* Dein vorhandener CSS-Stil bleibt unverändert */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f5f5f5;
+    }
+
+    #container {
+      text-align: center;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 25px;
+      box-shadow: 0 4px 8px rgba(150, 119, 221, 0.4); /* Lila Schatten */
+    }
+
+    input {
+      padding: 10px;
+      margin: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #975EFC;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
 
     #popup-container {
       display: none;
