@@ -1,1 +1,61 @@
-Moin
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lila Schatten Seite</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f5f5f5;
+    }
+
+    #container {
+      text-align: center;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(150, 119, 221, 0.4); /* Lila Schatten */
+    }
+
+    input {
+      padding: 10px;
+      margin: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #975EFC;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h1>Lila Schatten Seite</h1>
+    <input type="password" id="passwordInput" placeholder="Passwort eingeben">
+    <button onclick="checkPassword()">Einloggen</button>
+  </div>
+
+  <script>
+    function checkPassword() {
+      var password = document.getElementById('passwordInput').value;
+      if (password === 'passwort123') {
+        alert('Passwort korrekt! Weiterleitung...');
+        // Hier könntest du den Benutzer weiterleiten, z.B. window.location.href = 'weiterleitungs-url';
+      } else {
+        alert('Falsches Passwort. Versuche es erneut.');
+      }
+    }
+  </script>
+</body>
+</html>
